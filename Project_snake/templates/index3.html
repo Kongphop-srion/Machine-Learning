@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Snake Classification</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            /* background-image: url('https://images.pexels.com/photos/3804996/pexels-photo-3804996.jpeg?cs=srgb&dl=pexels-kate-trifo-3804996.jpg&fm=jpg'); */
+            background-image: url('https://images.workpointtoday.com/workpointnews/2022/11/07222245/1667834561_97871_CbkthzH007027_20221107_CBMFN0A001-scaled-1.jpg');
+            /* filter: brightness(100%); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            text-align: center;
+        }
+        h1 {
+            font-family: fantasy;
+            font-size: 48px;
+            color: #FFFFFF;
+        }
+        h2 {
+            font-family: fantasy;
+            font-size: 28px;
+            color: #FFFFFF;
+            margin-top: 10px;
+        }
+        label {
+            font-family: fantasy;
+            font-size: 24px;
+            color: #FFFFFF;
+        }
+        input[type="file"] {
+            font-family: fantasy;
+            font-size: 20px;
+            color: #333333;
+            padding: 10px;
+        }
+        button[type="submit"] {
+            font-family: fantasy;
+            font-size: 24px;
+            color: #FFFFFF;
+            background-color: #28a745;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 400px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Snake Classification</h1>
+        
+        <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="my_image">Upload Your Snake Image:</label>
+                <input type="file" class="form-control" name="my_image" id="my_image">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+        {% if prediction %}
+        <br>
+        <img src="{{ img_path }}" alt="Snake Image">
+        <h2>Prediction: {{ prediction }}  {{ TEXT }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
